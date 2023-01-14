@@ -1,0 +1,36 @@
+@use "./style-utilities/utilities" as *;
+
+section:is(.container) {
+	max-width: pixToRemGenerator(456px);
+	margin: auto;
+	background-color: map-get($colors, "bg-400");
+	padding-inline: pixToRemGenerator(24px);
+	padding-block: pixToRemGenerator(16px);
+	border-radius: pixToRemGenerator(4px);
+}
+main {
+	padding-inline: pixToRemGenerator(16px);
+}
+
+nav:is(.navBar) {
+	max-width: pixToRemGenerator(1168px);
+  padding-block: pixToRemGenerator(28px);
+	margin: auto;
+	p > span:is(.dim) {
+		color: map-get($colors, 
+    'grey' );
+	}
+}
+
+div:is(.generator) {
+	margin-top: pixToRemGenerator(42px);
+	& > * + * {
+		margin-top: pixToRemGenerator(24px);
+	}
+	h1:is(.title) {
+		font-size: pixToRemGenerator(14px);
+		font-weight: normal;
+		text-align: center;
+		color: map-get($colors, "grey");
+	}
+}

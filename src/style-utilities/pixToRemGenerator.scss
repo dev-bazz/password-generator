@@ -1,0 +1,4 @@
+@function pixToRemGenerator($pix, $suffix: rem) {
+	$init: calc($pix / 16px);
+	@return #{$init}#{$suffix};
+}

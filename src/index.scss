@@ -6,6 +6,8 @@ body {
   margin: 0;
   font-family: map-get($font, "font-family") !important;
   font-weight: normal;
+  background-color: map-get($colors , "bg-password");
+  color: map-get($colors, "white");
 }
 
 code {
