@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 // getting maths property for calculation
 
 function useGenerator() {
 	const copy = useRef();
-	return { calcMethods, copy };
+	const lengthRef = useRef();
+	const [length, setLength] = useState(4);
+	return { calcMethods, copy, length, setLength, lengthRef , generator};
 }
 
 // Password Generation Methods
@@ -21,5 +23,9 @@ const calcMethods = {
 		return floor(random() * length) + number;
 	},
 };
+
+const generator = () => {
+	console.log("Password Generator");
+}
 
 export { useGenerator };

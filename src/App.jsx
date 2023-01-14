@@ -4,13 +4,13 @@ import "./_App.scss";
 
 // JSX Component
 function App() {
-  const { copy } = useGenerator()
+  const { copy, length, setLength, lengthRef, generator } = useGenerator()
 
   return (
     <main className="App">
 
       <nav className="navBar">
-        <p className="logo">Clement <span className="dim">Bazuaye</span></p>
+        <p className="logo"><a href="https://www.linkedin.com/in/devbazz/">Clement <span className="dim">Bazuaye</span></a></p>
       </nav>
 
       <div className="generator">
@@ -26,8 +26,37 @@ function App() {
           </div>
         </section>
 
-        <section className="container ">
-          <p>Lower Section</p>
+        <section className="container controls">
+          <div className="slider-group">
+            <div className="container-flex">
+              <p className="ln">Character Length</p>
+              <p className="passLength">{length}</p>
+            </div>
+            <input role={`feed`} ref={lengthRef} onChange={() => {
+              const { current: { value } } = lengthRef
+              setLength(value)
+            }} value={length} type="range" className="range" name="length" min={4} max={20} />
+          </div>
+
+          <div className="checkers">
+            <div className="checkbox-container">
+              <input className="checkbox" type="checkbox" name="uppercase" id="uppercase" />
+              <label htmlFor="uppercase">Include Uppercase Letters</label>
+            </div>
+            <div className="checkbox-container">
+              <input className="checkbox" type="checkbox" name="lowercase" id="lowercase" />
+              <label htmlFor="lowercase">Include Lowercase Letters</label>
+            </div>
+            <div className="checkbox-container">
+              <input className="checkbox" type="checkbox" name="numbers" id="numbers" />
+              <label htmlFor="numbers">Include Numbers</label>
+            </div>
+            <div className="checkbox-container">
+              <input className="checkbox" type="checkbox" name="symbols" id="symbols" />
+              <label htmlFor="symbols">Include Symbols</label>
+            </div>
+          </div>
+          <button onClick={generator} className="generator-btn">Generate <Icons icon={`rotate`} /></button>
         </section>
 
       </div>

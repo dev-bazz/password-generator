@@ -1,12 +1,46 @@
 @use "./style-utilities/utilities" as *;
 
 section:is(.container) {
+	.range {
+		width: 100%;
+		accent-color: map-get($colors, "accent-password");
+	}
+	.ln {
+		color: map-get($colors, "grey");
+	}
+
+	.checkers > * + * {
+		margin-top: pixToRemGenerator(12px);
+	}
 	max-width: pixToRemGenerator(456px);
 	margin: auto;
 	background-color: map-get($colors, "bg-400");
 	padding-inline: pixToRemGenerator(24px);
 	padding-block: pixToRemGenerator(16px);
 	border-radius: pixToRemGenerator(4px);
+
+	.checkbox-container {
+		display: flex;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		gap: pixToRemGenerator(16px);
+		align-items: center;
+
+		.checkbox {
+			accent-color: map-get($colors, "accent-password");
+			position: relative;
+			width: pixToRemGenerator(20px);
+			aspect-ratio: 1/1;
+			border-radius: 20px;
+			border: 2px solid greenyellow;
+		}
+
+		& > * {
+			cursor: pointer;
+		}
+	}
 }
 
 .container-flex {
@@ -16,6 +50,17 @@ section:is(.container) {
 	output {
 		letter-spacing: 0.2em;
 		font-size: pixToRemGenerator(20px);
+	}
+}
+
+.controls {
+	& > * + * {
+		margin-top: pixToRemGenerator(36px);
+	}
+	.passLength {
+		color: map-get($colors, "accent-password");
+		font-size: pixToRemGenerator(20px);
+		font-weight: bold;
 	}
 }
 
@@ -35,8 +80,12 @@ nav:is(.navBar) {
 	max-width: pixToRemGenerator(1168px);
 	padding-block: pixToRemGenerator(28px);
 	margin: auto;
-	p > span:is(.dim) {
+	p  span:is(.dim) {
 		color: map-get($colors, "grey");
+	}
+	p > a{
+		text-decoration: none;
+		color: white;
 	}
 }
 
@@ -54,5 +103,28 @@ div:is(.generator) {
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
+	}
+}
+.generator-btn {
+	all: unset;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding-block: pixToRemGenerator(12px);
+	margin-top: pixToRemGenerator(36px);
+	background-color: map-get($colors, "accent-password");
+	border-radius: pixToRemGenerator(4px);
+	color: map-get($colors, "bg-password");
+	gap: pixToRemGenerator(8px);
+
+	&:is(:hover) {
+		cursor: pointer;
+		transition: background-color 0.2s ease-in-out;
+		background-color: lighten(map-get($colors, "accent-password"), $amount: 2);
+	}
+	&:is(:active) {
+		background-color: darken(map-get($colors, "accent-password"), $amount: 12);
 	}
 }
