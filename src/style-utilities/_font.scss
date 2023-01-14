@@ -1,0 +1,20 @@
+@font-face {
+	font-family: "Hubot-Sans";
+	src: url(../font/Hubot-Sans-Regular.woff2);
+}
+
+@font-face {
+	font-family: "Hubot-Sans";
+	src: url(../font/Hubot-Sans-Regular.woff2);
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Hubot-Sans";
+	src: url(../font/Hubot-Sans-Bold.woff2);
+	font-weight: bold;
+}
+
+$font: (
+	"font-family": "Hubot-Sans",
+);
