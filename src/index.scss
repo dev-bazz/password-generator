@@ -1,16 +1,17 @@
 @use "./style-utilities/utilities" as *;
 
-
-
 body {
-  margin: 0;
-  font-family: map-get($font, "font-family") !important;
-  font-weight: normal;
-  background-color: map-get($colors , "bg-password");
-  color: map-get($colors, "white");
+	margin: 0;
+	font-family: map-get($font, "font-family") !important;
+	font-weight: normal;
+	background-color: map-get($colors, "bg-password");
+	color: map-get($colors, "white");
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-moz-selection {
+	background-color: map-get($colors, "accent-password");
+	color: map-get($colors, "bg-password") !important;
+}
+::selection {
+	background-color: map-get($colors, "accent-password");
+  color: map-get($colors, "bg-password") !important;
 }
