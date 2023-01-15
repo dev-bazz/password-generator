@@ -4,7 +4,7 @@ import "./_App.scss";
 
 // JSX Component
 function App() {
-  const { copy, length, setLength, lengthRef, generator } = useGenerator()
+  const { copy, length, setLength, lengthRef, generator, lowerLetterCheckbox, setLowerLetterCheckbox, upperLetterCheckbox, setUpperLetterCheckbox, numberCheckbox, setNumberCheckbox, symbolCheckbox, setSymbolCheckbox } = useGenerator()
 
   return (
     <main className="App">
@@ -27,34 +27,44 @@ function App() {
         </section>
 
         <section className="container controls">
+
           <div className="slider-group">
             <div className="container-flex">
               <p className="ln">Character Length</p>
               <p className="passLength">{length}</p>
             </div>
+
             <input role={`feed`} ref={lengthRef} onChange={() => {
               const { current: { value } } = lengthRef
               setLength(value)
             }} value={length} type="range" className="range" name="length" min={4} max={20} />
+
           </div>
 
           <div className="checkers">
+
             <div className="checkbox-container">
-              <input className="checkbox" type="checkbox" name="uppercase" id="uppercase" />
+              <input className="checkbox" type="checkbox" name="uppercase" id="uppercase" checked={upperLetterCheckbox} onChange={() => setUpperLetterCheckbox((prevState) => !prevState)} />
               <label htmlFor="uppercase">Include Uppercase Letters</label>
             </div>
+
             <div className="checkbox-container">
-              <input className="checkbox" type="checkbox" name="lowercase" id="lowercase" />
+              <input className="checkbox" type="checkbox" name="lowercase" id="lowercase"
+                checked={lowerLetterCheckbox} onChange={() => setLowerLetterCheckbox((prevState) => !prevState)} />
               <label htmlFor="lowercase">Include Lowercase Letters</label>
             </div>
+
             <div className="checkbox-container">
-              <input className="checkbox" type="checkbox" name="numbers" id="numbers" />
+              <input className="checkbox" type="checkbox" name="numbers" id="numbers"
+                checked={numberCheckbox} onChange={() => setNumberCheckbox((prevState) => !prevState)} />
               <label htmlFor="numbers">Include Numbers</label>
             </div>
+
             <div className="checkbox-container">
-              <input className="checkbox" type="checkbox" name="symbols" id="symbols" />
+              <input className="checkbox" type="checkbox" name="symbols" id="symbols"  checked={symbolCheckbox} onChange={() => setSymbolCheckbox((prevState) => !prevState)}  />
               <label htmlFor="symbols">Include Symbols</label>
             </div>
+
           </div>
           <button onClick={generator} className="generator-btn">Generate <Icons icon={`rotate`} /></button>
         </section>
