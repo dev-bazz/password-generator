@@ -10,7 +10,8 @@ function App() {
     generator, lowerLetterCheckbox,
     setLowerLetterCheckbox, upperLetterCheckbox,
     setUpperLetterCheckbox, numberCheckbox,
-    setNumberCheckbox, symbolCheckbox, setSymbolCheckbox } = useGenerator()
+    setNumberCheckbox, symbolCheckbox,
+    setSymbolCheckbox, passwordResult } = useGenerator()
 
   // JSX for this component
   return (
@@ -25,7 +26,7 @@ function App() {
 
         <section className="container ">
           <div className="container-flex">
-            <output>86AqmCgIfl9a5SD</output>
+            <output>{passwordResult }</output>
             <Icons refIcon={copy}
               click={() => {
                 console.log("This is your Icon", copy)
