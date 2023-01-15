@@ -10,7 +10,7 @@ function useGenerator() {
 	const [numberCheckbox, setNumberCheckbox] = useState(true);
 	const [symbolCheckbox, setSymbolCheckbox] = useState(true);
 	const [length, setLength] = useState(4);
-	
+
 	return {
 		calcMethods,
 		copy,
@@ -52,8 +52,6 @@ const calcMethods = {
 };
 
 const generator = () => {
-	calcMethods.genLargeCaps();
-	calcMethods.genSmallCaps();
 	console.log(
 		"Password Generator",
 		calcMethods.genSmallCaps(),

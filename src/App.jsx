@@ -2,10 +2,17 @@ import { Icons } from "./asset";
 import { useGenerator } from "./calculator";
 import "./_App.scss";
 
-// JSX Component
-function App() {
-  const { copy, length, setLength, lengthRef, generator, lowerLetterCheckbox, setLowerLetterCheckbox, upperLetterCheckbox, setUpperLetterCheckbox, numberCheckbox, setNumberCheckbox, symbolCheckbox, setSymbolCheckbox } = useGenerator()
 
+function App() {
+  // Password Generation logic can be found here useGenerator.js
+  const { copy, length,
+    setLength, lengthRef,
+    generator, lowerLetterCheckbox,
+    setLowerLetterCheckbox, upperLetterCheckbox,
+    setUpperLetterCheckbox, numberCheckbox,
+    setNumberCheckbox, symbolCheckbox, setSymbolCheckbox } = useGenerator()
+
+  // JSX for this component
   return (
     <main className="App">
 
@@ -61,11 +68,12 @@ function App() {
             </div>
 
             <div className="checkbox-container">
-              <input className="checkbox" type="checkbox" name="symbols" id="symbols"  checked={symbolCheckbox} onChange={() => setSymbolCheckbox((prevState) => !prevState)}  />
+              <input className="checkbox" type="checkbox" name="symbols" id="symbols" checked={symbolCheckbox} onChange={() => setSymbolCheckbox((prevState) => !prevState)} />
               <label htmlFor="symbols">Include Symbols</label>
             </div>
 
           </div>
+
           <button onClick={generator} className="generator-btn">Generate <Icons icon={`rotate`} /></button>
         </section>
 
