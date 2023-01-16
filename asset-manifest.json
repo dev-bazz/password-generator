@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/password-generator/static/css/main.1921dd5a.css",
-    "main.js": "/password-generator/static/js/main.45c862b3.js",
+    "main.js": "/password-generator/static/js/main.906f3881.js",
     "static/js/787.7da6eb2c.chunk.js": "/password-generator/static/js/787.7da6eb2c.chunk.js",
     "static/media/Hubot-Sans-Bold.woff2": "/password-generator/static/media/Hubot-Sans-Bold.b6d9eaa3170d5863867b.woff2",
     "static/media/Hubot-Sans-Regular.woff2": "/password-generator/static/media/Hubot-Sans-Regular.ec4baf3ebe83287b0949.woff2",
     "index.html": "/password-generator/index.html",
     "main.1921dd5a.css.map": "/password-generator/static/css/main.1921dd5a.css.map",
-    "main.45c862b3.js.map": "/password-generator/static/js/main.45c862b3.js.map",
+    "main.906f3881.js.map": "/password-generator/static/js/main.906f3881.js.map",
     "787.7da6eb2c.chunk.js.map": "/password-generator/static/js/787.7da6eb2c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1921dd5a.css",
-    "static/js/main.45c862b3.js"
+    "static/js/main.906f3881.js"
   ]
 }
