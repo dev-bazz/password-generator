@@ -7,7 +7,7 @@ function useGenerator() {
 		copyText = useRef(),
 		lengthRef = useRef();
 
-	const [passwordResult, setPasswordResult] = useState(`No Password Generated`);
+	const [passwordResult, setPasswordResult] = useState(`...`);
 	const [lowerLetterCheckbox, setLowerLetterCheckbox] = useState(true);
 	const [upperLetterCheckbox, setUpperLetterCheckbox] = useState(true);
 	const [numberCheckbox, setNumberCheckbox] = useState(true);
