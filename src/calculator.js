@@ -28,7 +28,7 @@ function useGenerator() {
 			lowerLetterCheckbox +
 			numberCheckbox +
 			symbolCheckbox;
-		
+
 		if (typeCount === 0) return result(`Select a Checkbox`);
 
 		const typeArray = [
@@ -39,17 +39,14 @@ function useGenerator() {
 		].filter((item) => Object.values(item)[0]);
 		console.log(Object.values(typeArray[0])[0]);
 		console.log(typeArray);
-		
 
 		for (let i = 0; i < length; i += typeCount) {
-			
 			typeArray.forEach((item) => {
 				const funcName = Object.keys(item)[0];
-				password += calcMethods[funcName]()
-			})
-			
+				password += calcMethods[funcName]();
+			});
 		}
-		result(password);
+		result(password.slice(0, length));
 	};
 
 	return {
