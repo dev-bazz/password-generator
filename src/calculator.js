@@ -3,8 +3,10 @@ import { useRef, useState } from "react";
 // getting maths property for calculation
 
 function useGenerator() {
-	const copy = useRef();
-	const lengthRef = useRef();
+	const copy = useRef(),
+		copyText = useRef(),
+		lengthRef = useRef();
+
 	const [passwordResult, setPasswordResult] = useState(`No Password Generated`);
 	const [lowerLetterCheckbox, setLowerLetterCheckbox] = useState(true);
 	const [upperLetterCheckbox, setUpperLetterCheckbox] = useState(true);
@@ -37,8 +39,6 @@ function useGenerator() {
 			{ numberCheckbox },
 			{ symbolCheckbox },
 		].filter((item) => Object.values(item)[0]);
-		console.log(Object.values(typeArray[0])[0]);
-		console.log(typeArray);
 
 		for (let i = 0; i < length; i += typeCount) {
 			typeArray.forEach((item) => {
@@ -65,6 +65,7 @@ function useGenerator() {
 		setNumberCheckbox,
 		setSymbolCheckbox,
 		passwordResult,
+		copyText,
 	};
 }
 

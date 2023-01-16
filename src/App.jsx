@@ -11,7 +11,7 @@ function App() {
     setLowerLetterCheckbox, upperLetterCheckbox,
     setUpperLetterCheckbox, numberCheckbox,
     setNumberCheckbox, symbolCheckbox,
-    setSymbolCheckbox, passwordResult } = useGenerator()
+    setSymbolCheckbox, passwordResult, copyText } = useGenerator()
 
   // JSX for this component
   return (
@@ -26,10 +26,14 @@ function App() {
 
         <section className="container ">
           <div className="container-flex">
-            <output>{passwordResult }</output>
+            <output ref={copyText} >{passwordResult }</output>
             <Icons refIcon={copy}
               click={() => {
-                console.log("This is your Icon", copy)
+                const { current } = copyText
+                console.log(current)
+                navigator.clipboard.writeText(current.innerText).then(() => {
+                  console.log("copied")
+                })
               }} icon={`copy`} />
           </div>
         </section>
