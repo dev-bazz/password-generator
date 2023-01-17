@@ -1,8 +1,10 @@
-import { RiveAsset } from "./asset";
+import { RiveAsset, TreeGrowth } from "./asset";
 import { CheckboxItem } from "./CheckBox";
 import { useGState } from "./GlobalState";
 import Loader from "./Loader";
 import "./_App.scss";
+import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
+import riv from "./riv/pga.riv"
 
 
 function App() {
@@ -14,15 +16,24 @@ function App() {
     setUpperLetterCheckbox, numberCheckbox,
     setNumberCheckbox, symbolCheckbox,
     setSymbolCheckbox, passwordResult, copyText } = useGState()
-  //   const { copy, length,
-  //     setLength, lengthRef,
-  //     generator, lowerLetterCheckbox,
-  //     setLowerLetterCheckbox, upperLetterCheckbox,
-  //     setUpperLetterCheckbox, numberCheckbox,
-  //     setNumberCheckbox, symbolCheckbox,
-  //     setSymbolCheckbox, passwordResult, copyText } = useGenerator()
-  // cl()
-  // JSX for this component
+
+  
+    
+      const stateM  = 'State Machine 1'
+      const { RiveComponent, rive } = useRive({
+        src: riv,
+        autoplay: true,
+        artboard: 'Tree',
+        stateMachines:stateM
+      })
+      const anime = useStateMachineInput(rive,stateM,"input" )
+    const grow = (length) => {
+      anime.value = length * 5
+    }
+       <RiveComponent  onClick={() => {
+        grow(length)
+      }} />
+    
   return (
     <main className="App">
       {/* <Loader /> */}
@@ -33,7 +44,10 @@ function App() {
       <div className="generator">
         <h1 className="title" >Password Generator</h1>
 
-        <section className="container ">
+        <section className="container treetop">
+          {/* <TreeGrowth className={`big`} length={length} /> */}
+          <RiveComponent  className="big" />
+          
           <div className="container-flex">
             <output ref={copyText} >{passwordResult}</output>
             <RiveAsset className={`copy`} stateMachine={`copy`} copyText={copyText} />
@@ -47,10 +61,11 @@ function App() {
               <p className="ln">Character Length</p>
               <p className="passLength">{length}</p>
             </div>
-
+            
             <input role={`feed`} ref={lengthRef} onChange={() => {
               const { current: { value } } = lengthRef
               setLength(value)
+              grow(length)
             }} value={length} type="range" className="range" name="length" min={4} max={20} />
 
           </div>

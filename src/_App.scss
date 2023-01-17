@@ -8,6 +8,17 @@
 	display: inline-block;
 }
 
+.big{
+	width: pixToRemGenerator(350px);
+	aspect-ratio: 1/1;
+	position: absolute;
+	z-index: -1;
+	bottom: -48%;
+}
+.treetop{
+	position: relative;
+
+}
 section:is(.container) {
 	.range {
 		width: 100%;
@@ -26,6 +37,7 @@ section:is(.container) {
 	padding-inline: pixToRemGenerator(24px);
 	padding-block: pixToRemGenerator(16px);
 	border-radius: pixToRemGenerator(4px);
+	
 
 	.checkbox-container {
 		display: flex;

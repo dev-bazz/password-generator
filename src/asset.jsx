@@ -42,7 +42,7 @@ const RiveAsset = ({ stateMachine, className, copyText }) => {
     stateMachine
   )
 
-  return <RiveComponent className={className}  onClick = {() => {
+  return <RiveComponent className={className} onClick={() => {
     const { current } = copyText
     console.log(current)
     navigator.clipboard.writeText(current.innerText).then(() => {
@@ -51,5 +51,22 @@ const RiveAsset = ({ stateMachine, className, copyText }) => {
   }} />;
 }
 
+const TreeGrowth = ({ className , length}) => {
+  const stateM  = 'State Machine 1'
+  const { RiveComponent, rive } = useRive({
+    src: riv,
+    autoplay: true,
+    artboard: 'Tree',
+    stateMachines:stateM
+  })
+  const anime = useStateMachineInput(rive,stateM,"input" )
+const grow = (length) => {
+  anime.value = length * 5
+}
+  return <RiveComponent className={className} onClick={() => {
+    grow(length)
+  }} />
+}
 
-export { Icons, RiveAsset }
+
+export { Icons, RiveAsset, TreeGrowth }
