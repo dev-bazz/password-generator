@@ -1,3 +1,8 @@
+import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
+import riv from "./riv/pga.riv"
+
+
+
 const Icons = ({ icon, className = "icon", refIcon, click }) => {
   switch (icon) {
     case "copy":
@@ -23,4 +28,30 @@ const Icons = ({ icon, className = "icon", refIcon, click }) => {
   }
 }
 
-export { Icons }
+const RiveAsset = ({ stateMachine, className, state =false }) => {
+  const { RiveComponent, rive } = useRive({
+    src: riv,
+    stateMachines: stateMachine,
+    autoplay: true,
+    artboard: stateMachine
+
+  })
+  const stateInput = useStateMachineInput(
+    rive,
+    stateMachine,
+    stateMachine
+  )
+
+
+
+  return <RiveComponent className={className}  onClick = {() => {
+    stateInput.fire()
+  }} />;
+
+
+
+
+}
+
+
+export { Icons, RiveAsset }

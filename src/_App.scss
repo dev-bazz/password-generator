@@ -1,5 +1,13 @@
 @use "./style-utilities/utilities" as *;
 
+.riveIcon {
+	aspect-ratio: 1;
+	width: pixToRemGenerator(24px);
+	margin: 0;
+	min-height: pixToRemGenerator(24px);
+	display: inline-block;
+}
+
 section:is(.container) {
 	.range {
 		width: 100%;
@@ -35,6 +43,7 @@ section:is(.container) {
 			aspect-ratio: 1/1;
 			border-radius: 20px;
 			border: 2px solid greenyellow;
+			display: none;
 		}
 
 		& > * {
@@ -80,10 +89,10 @@ nav:is(.navBar) {
 	max-width: pixToRemGenerator(1168px);
 	padding-block: pixToRemGenerator(28px);
 	margin: auto;
-	p  span:is(.dim) {
+	p span:is(.dim) {
 		color: map-get($colors, "grey");
 	}
-	p > a{
+	p > a {
 		text-decoration: none;
 		color: white;
 	}

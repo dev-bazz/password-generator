@@ -1,5 +1,7 @@
-import { Icons } from "./asset";
+import { Icons, RiveAsset } from "./asset";
 import { useGenerator } from "./calculator";
+import { CheckboxItem } from "./CheckBox";
+import { useGState } from "./GlobalState";
 import "./_App.scss";
 
 
@@ -11,8 +13,15 @@ function App() {
     setLowerLetterCheckbox, upperLetterCheckbox,
     setUpperLetterCheckbox, numberCheckbox,
     setNumberCheckbox, symbolCheckbox,
-    setSymbolCheckbox, passwordResult, copyText } = useGenerator()
-
+    setSymbolCheckbox, passwordResult, copyText } = useGState()
+  //   const { copy, length,
+  //     setLength, lengthRef,
+  //     generator, lowerLetterCheckbox,
+  //     setLowerLetterCheckbox, upperLetterCheckbox,
+  //     setUpperLetterCheckbox, numberCheckbox,
+  //     setNumberCheckbox, symbolCheckbox,
+  //     setSymbolCheckbox, passwordResult, copyText } = useGenerator()
+  // cl()
   // JSX for this component
   return (
     <main className="App">
@@ -20,13 +29,12 @@ function App() {
       <nav className="navBar">
         <p className="logo"><a href="https://www.linkedin.com/in/devbazz/">Clement <span className="dim">Bazuaye</span></a></p>
       </nav>
-
       <div className="generator">
         <h1 className="title" >Password Generator</h1>
 
         <section className="container ">
           <div className="container-flex">
-            <output ref={copyText} >{passwordResult }</output>
+            <output ref={copyText} >{passwordResult}</output>
             <Icons refIcon={copy}
               click={() => {
                 const { current } = copyText
@@ -54,32 +62,13 @@ function App() {
           </div>
 
           <div className="checkers">
-
-            <div className="checkbox-container">
-              <input className="checkbox" type="checkbox" name="uppercase" id="uppercase" checked={upperLetterCheckbox} onChange={() => setUpperLetterCheckbox((prevState) => !prevState)} />
-              <label htmlFor="uppercase">Include Uppercase Letters</label>
-            </div>
-
-            <div className="checkbox-container">
-              <input className="checkbox" type="checkbox" name="lowercase" id="lowercase"
-                checked={lowerLetterCheckbox} onChange={() => setLowerLetterCheckbox((prevState) => !prevState)} />
-              <label htmlFor="lowercase">Include Lowercase Letters</label>
-            </div>
-
-            <div className="checkbox-container">
-              <input className="checkbox" type="checkbox" name="numbers" id="numbers"
-                checked={numberCheckbox} onChange={() => setNumberCheckbox((prevState) => !prevState)} />
-              <label htmlFor="numbers">Include Numbers</label>
-            </div>
-
-            <div className="checkbox-container">
-              <input className="checkbox" type="checkbox" name="symbols" id="symbols" checked={symbolCheckbox} onChange={() => setSymbolCheckbox((prevState) => !prevState)} />
-              <label htmlFor="symbols">Include Symbols</label>
-            </div>
-
+            <CheckboxItem state={upperLetterCheckbox} setState={setUpperLetterCheckbox} type={`uppercase`} text={`Include Uppercase Letters`} />
+            <CheckboxItem state={lowerLetterCheckbox} setState={setLowerLetterCheckbox} type={`lowercase`} text={`Include Lowercase Letters`} />
+            <CheckboxItem state={numberCheckbox} setState={setNumberCheckbox} type={`numbers`} text={`Include Numbers`} />
+            <CheckboxItem state={symbolCheckbox} setState={setSymbolCheckbox} type={`symbols`} text={`Include Symbols`} />
           </div>
 
-          <button onClick={generator} className="generator-btn">Generate <Icons icon={`rotate`} /></button>
+          <button onClick={generator} className="generator-btn">Generate </button>
         </section>
 
       </div>

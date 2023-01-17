@@ -1,17 +1,28 @@
-import { useRef, useState } from "react";
+import React, { createContext, useRef, useState , useContext} from 'react'
+const AppState = createContext()
 
+export default function GlobalState({ children }) {
+  const {...All} = useGenerator()
+  return (
+    <AppState.Provider value={All}>
+      {children}
+    </AppState.Provider>
+  )
+}
 // getting maths property for calculation
-
+function useGState() {
+  return useContext(AppState)
+}
 function useGenerator() {
 	const copy = useRef(),
 		copyText = useRef(),
 		lengthRef = useRef();
 
 	const [passwordResult, setPasswordResult] = useState(`...`);
-	const [lowerLetterCheckbox, setLowerLetterCheckbox] = useState(true);
-	const [upperLetterCheckbox, setUpperLetterCheckbox] = useState(true);
-	const [numberCheckbox, setNumberCheckbox] = useState(true);
-	const [symbolCheckbox, setSymbolCheckbox] = useState(true);
+	const [lowerLetterCheckbox, setLowerLetterCheckbox] = useState(false);
+	const [upperLetterCheckbox, setUpperLetterCheckbox] = useState(false);
+	const [numberCheckbox, setNumberCheckbox] = useState(false);
+	const [symbolCheckbox, setSymbolCheckbox] = useState(false);
 	const [length, setLength] = useState(4);
 
 	const result = (payload) => {
@@ -49,9 +60,13 @@ function useGenerator() {
 			});
 		}
 		result(password.slice(0, length));
-	};
+  };
+  const cl = () => {
+    console.log("Global is it?")
+  }
 
-	return {
+  return {
+    cl,
 		calcMethods,
 		copy,
 		length,
@@ -93,4 +108,4 @@ const calcMethods = {
 	},
 };
 
-export { useGenerator };
+export { useGState, GlobalState };
