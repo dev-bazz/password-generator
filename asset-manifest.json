@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/password-generator/static/css/main.bd48ea31.css",
-    "main.js": "/password-generator/static/js/main.a0fc0f91.js",
+    "main.css": "/password-generator/static/css/main.1d9d33f7.css",
+    "main.js": "/password-generator/static/js/main.14dfeb97.js",
     "static/js/787.7da6eb2c.chunk.js": "/password-generator/static/js/787.7da6eb2c.chunk.js",
     "static/media/pga.riv": "/password-generator/static/media/pga.9b5ab5d4971bf8d3e12c.riv",
     "static/media/Hubot-Sans-Bold.woff2": "/password-generator/static/media/Hubot-Sans-Bold.b6d9eaa3170d5863867b.woff2",
     "static/media/Hubot-Sans-Regular.woff2": "/password-generator/static/media/Hubot-Sans-Regular.ec4baf3ebe83287b0949.woff2",
     "static/media/lock_icon (1).riv": "/password-generator/static/media/lock_icon (1).a21519817b2474992429.riv",
     "index.html": "/password-generator/index.html",
-    "main.bd48ea31.css.map": "/password-generator/static/css/main.bd48ea31.css.map",
-    "main.a0fc0f91.js.map": "/password-generator/static/js/main.a0fc0f91.js.map",
+    "main.1d9d33f7.css.map": "/password-generator/static/css/main.1d9d33f7.css.map",
+    "main.14dfeb97.js.map": "/password-generator/static/js/main.14dfeb97.js.map",
     "787.7da6eb2c.chunk.js.map": "/password-generator/static/js/787.7da6eb2c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bd48ea31.css",
-    "static/js/main.a0fc0f91.js"
+    "static/css/main.1d9d33f7.css",
+    "static/js/main.14dfeb97.js"
   ]
 }
