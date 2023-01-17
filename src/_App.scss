@@ -63,6 +63,7 @@ section:is(.container) {
 	.copy{
 		width: pixToRemGenerator(24px);
 		aspect-ratio: 1/1;
+		cursor: pointer;
 	}
 }
 

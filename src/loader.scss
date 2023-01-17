@@ -1,0 +1,16 @@
+@use "./style-utilities/utilities" as *;
+
+.loaderI{
+  width: 300px;
+  aspect-ratio: 1;
+  display: inline-block;
+}
+
+.loader{
+
+ height:100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}

@@ -1,6 +1,7 @@
 import { RiveAsset } from "./asset";
 import { CheckboxItem } from "./CheckBox";
 import { useGState } from "./GlobalState";
+import Loader from "./Loader";
 import "./_App.scss";
 
 
@@ -24,6 +25,7 @@ function App() {
   // JSX for this component
   return (
     <main className="App">
+      {/* <Loader /> */}
 
       <nav className="navBar">
         <p className="logo"><a href="https://www.linkedin.com/in/devbazz/">Clement <span className="dim">Bazuaye</span></a></p>
