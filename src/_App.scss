@@ -60,6 +60,10 @@ section:is(.container) {
 		letter-spacing: 0.2em;
 		font-size: pixToRemGenerator(20px);
 	}
+	.copy{
+		width: pixToRemGenerator(24px);
+		aspect-ratio: 1/1;
+	}
 }
 
 .controls {

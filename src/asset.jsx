@@ -28,7 +28,7 @@ const Icons = ({ icon, className = "icon", refIcon, click }) => {
   }
 }
 
-const RiveAsset = ({ stateMachine, className, state =false }) => {
+const RiveAsset = ({ stateMachine, className, copyText }) => {
   const { RiveComponent, rive } = useRive({
     src: riv,
     stateMachines: stateMachine,
@@ -42,15 +42,13 @@ const RiveAsset = ({ stateMachine, className, state =false }) => {
     stateMachine
   )
 
-
-
   return <RiveComponent className={className}  onClick = {() => {
-    stateInput.fire()
+    const { current } = copyText
+    console.log(current)
+    navigator.clipboard.writeText(current.innerText).then(() => {
+      console.log("copied")
+    })
   }} />;
-
-
-
-
 }
 
 

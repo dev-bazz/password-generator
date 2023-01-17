@@ -20,7 +20,7 @@ const CheckboxItem = ({ stateMachine = `checkbox`, className = `riveIcon`, state
   }
 
   return <div className="checkbox-container">
-    <RiveComponent className={className} onClick={() => { stateInput.fire() }} />
+    <RiveComponent className={className} onClick={update} />
     <input className={stateMachine} type={stateMachine} name={type} id={type} checked={state} onChange={update} />
     <label  htmlFor={type}>{text}</label>
   </div>;

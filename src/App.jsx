@@ -1,5 +1,4 @@
-import { Icons, RiveAsset } from "./asset";
-import { useGenerator } from "./calculator";
+import { RiveAsset } from "./asset";
 import { CheckboxItem } from "./CheckBox";
 import { useGState } from "./GlobalState";
 import "./_App.scss";
@@ -7,7 +6,7 @@ import "./_App.scss";
 
 function App() {
   // Password Generation logic can be found here useGenerator.js
-  const { copy, length,
+  const { length,
     setLength, lengthRef,
     generator, lowerLetterCheckbox,
     setLowerLetterCheckbox, upperLetterCheckbox,
@@ -35,14 +34,7 @@ function App() {
         <section className="container ">
           <div className="container-flex">
             <output ref={copyText} >{passwordResult}</output>
-            <Icons refIcon={copy}
-              click={() => {
-                const { current } = copyText
-                console.log(current)
-                navigator.clipboard.writeText(current.innerText).then(() => {
-                  console.log("copied")
-                })
-              }} icon={`copy`} />
+            <RiveAsset className={`copy`} stateMachine={`copy`} copyText={copyText} />
           </div>
         </section>
 
