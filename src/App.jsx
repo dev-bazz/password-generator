@@ -1,7 +1,6 @@
-import { RiveAsset, TreeGrowth } from "./asset";
+import { RiveAsset } from "./asset";
 import { CheckboxItem } from "./CheckBox";
 import { useGState } from "./GlobalState";
-import Loader from "./Loader";
 import "./_App.scss";
 import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 import riv from "./riv/pga.riv"
@@ -49,7 +48,7 @@ function App() {
           <RiveComponent  className="big" />
           
           <div className="container-flex">
-            <output ref={copyText} >{passwordResult}</output>
+            <output className="output" datatype="previous password" ref={copyText} >{passwordResult}</output>
             <RiveAsset className={`copy`} stateMachine={`copy`} copyText={copyText} />
           </div>
         </section>
