@@ -154,3 +154,17 @@ div:is(.generator) {
 		background-color: darken(map-get($colors, "accent-password"), $amount: 12);
 	}
 }
+.output{
+	position: relative;
+	&::before{
+		content: attr(data);
+		position: absolute;
+   top: -46px;
+    background-color: pink;
+    color: black;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding-inline: 1em;
+	}
+}
