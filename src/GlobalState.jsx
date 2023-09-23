@@ -1,17 +1,13 @@
-import React, { createContext, useRef, useState , useContext} from 'react'
-const AppState = createContext()
+import React, { createContext, useRef, useState, useContext } from "react";
+const AppState = createContext();
 
 export default function GlobalState({ children }) {
-  const {...All} = useGenerator()
-  return (
-    <AppState.Provider value={All}>
-      {children}
-    </AppState.Provider>
-  )
+	const { ...All } = useGenerator();
+	return <AppState.Provider value={All}>{children}</AppState.Provider>;
 }
 // getting maths property for calculation
 function useGState() {
-  return useContext(AppState)
+	return useContext(AppState);
 }
 function useGenerator() {
 	const copy = useRef(),
@@ -29,7 +25,6 @@ function useGenerator() {
 		setPasswordResult(payload);
 	};
 
-
 	const generator = () => {
 		// TODO: Password Generation
 		// 1: Initialize password variable
@@ -37,7 +32,6 @@ function useGenerator() {
 		// 3: loop over the length and call the calc method function for each type
 		// 4: pass password to result function
 
-		let password = ``;
 		const typeCount =
 			upperLetterCheckbox +
 			lowerLetterCheckbox +
@@ -54,19 +48,20 @@ function useGenerator() {
 		].filter((item) => Object.values(item)[0]);
 
 		for (let i = 0; i < length; i += typeCount) {
+			let password = ""; // Declare password inside the loop
 			typeArray.forEach((item) => {
 				const funcName = Object.keys(item)[0];
 				password += calcMethods[funcName]();
 			});
+			result(password.slice(0, length));
 		}
-		result(password.slice(0, length));
-  };
-  const cl = () => {
-    console.log("Global is it?")
-  }
+	};
+	const cl = () => {
+		console.log("Global is it?");
+	};
 
-  return {
-    cl,
+	return {
+		cl,
 		calcMethods,
 		copy,
 		length,
@@ -85,7 +80,6 @@ function useGenerator() {
 		copyText,
 	};
 }
-
 
 // Password Generation Methods
 const { floor, random } = Math;
